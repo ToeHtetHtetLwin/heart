@@ -29,7 +29,7 @@ export class ZootopiaSceneComponent implements OnInit {
   private heartMesh!: THREE.Mesh; 
   private stars!: THREE.Points;
   private emojiHearts: THREE.Sprite[] = [];
-  // Floating hearts အတွက် ပန်းရောင် emoji များ
+ 
   private heartEmojis = ['💖', '💗', '💓', '💓', '💕', '💓'];
 
   ngOnInit() {
@@ -81,7 +81,7 @@ export class ZootopiaSceneComponent implements OnInit {
       posArray[i] = (Math.random() - 0.5) * 150;
     }
     starGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    // ကြယ်ပွင့်များကို Pink အရောင်ထားသည်
+   
     const starMat = new THREE.PointsMaterial({ size: 0.16, color: 0xff69b4, transparent: true, opacity: 0.6 });
     this.stars = new THREE.Points(starGeo, starMat);
     this.scene.add(this.stars);
