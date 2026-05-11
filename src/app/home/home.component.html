@@ -1,0 +1,58 @@
+<div class="min-h-screen bg-rose-50 flex flex-col items-center justify-center p-6 select-none overflow-hidden">
+  
+  <div class="relative w-64 h-64 flex items-center justify-center mb-10">
+    <div class="absolute z-10 text-2xl font-bold font-mono" 
+         [style.color]="percent() > 50 ? 'white' : '#E11D48'">
+      {{ percent() }}%
+    </div>
+
+    <svg viewBox="0 0 32 29.6" class="absolute w-full h-full drop-shadow-xl">
+      <path 
+        d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2C32,3.8,28.2,0,23.6,0z"
+        fill="#ffffff" 
+      />
+    </svg>
+
+    <svg viewBox="0 0 32 29.6" class="absolute w-full h-full">
+      <defs>
+        <linearGradient id="heartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#ff0000" />
+          <stop offset="100%" style="stop-color:#8b0000" />
+        </linearGradient>
+        <clipPath id="heartClip">
+          <rect #maskRect x="0" y="30" width="32" height="30" />
+        </clipPath>
+      </defs>
+      
+      <path 
+        d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2C32,3.8,28.2,0,23.6,0z"
+        fill="url(#heartGrad)"
+        clip-path="url(#heartClip)"
+      />
+    </svg>
+  </div>
+
+  <div class="flex flex-col items-center gap-6">
+    <div 
+      (mousedown)="onStartPress($event)" 
+      (mouseup)="onEndPress()" 
+      (mouseleave)="onEndPress()"
+      (touchstart)="onStartPress($event)" 
+      (touchend)="onEndPress()"
+      class="press-btn w-24 h-24 bg-white shadow-[0_10px_25px_rgba(225,29,72,0.3)] rounded-[2.5rem] flex items-center justify-center cursor-pointer active:scale-95 transition-all duration-300 hover:shadow-2xl"
+      style="touch-action: none;"
+    >
+      <span class="text-4xl">☝️</span>
+    </div>
+
+    <p class="text-rose-500 font-bold tracking-[0.2em] text-xs uppercase h-4">
+      {{ statusText() }}
+    </p>
+
+    <div #loveMessage class="opacity-0 mt-4 text-center">
+      <h1 class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-rose-500">
+        မင်းကိုအရမ်းချစ်တယ်​နော်
+      </h1>
+    </div>
+  </div>
+</div>
