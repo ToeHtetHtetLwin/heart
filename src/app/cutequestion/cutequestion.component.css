@@ -1,0 +1,64 @@
+.main-wrapper {
+  background: radial-gradient(circle at 50% 50%, #fff5f7 0%, #ffe4e6 100%);
+  overflow: hidden;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px) saturate(180%);
+  border-radius: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 30px 60px -12px rgba(255, 182, 193, 0.3);
+}
+
+/* Floating Image Animation */
+.floating-img-container {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Primary Button (Yes) */
+.btn-primary {
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+  color: white;
+  font-weight: 800;
+  padding: 1rem 3rem;
+  border-radius: 9999px;
+  width: fit-content;
+  box-shadow: 0 10px 25px -5px rgba(255, 20, 147, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.btn-primary:hover {
+  transform: scale(1.1) rotate(1deg);
+}
+
+/* Secondary Button (No) - The Runaway Button */
+.btn-secondary {
+  position: fixed; /* Screen တစ်ခုလုံးမှာ ပြေးလို့ရအောင် fixed သုံးရမယ် */
+  z-index: 100;
+  background: white;
+  color: #94a3b8;
+  font-weight: 600;
+  padding: 0.8rem 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid #f1f5f9;
+  cursor: pointer;
+  
+  /* စစချင်း Card အလယ်မှာ ရှိနေအောင် */
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: none; /* GSAP နဲ့ ရွှေ့မှာမို့ transition ခဏပိတ်ထားတာပါ */
+}
+
+canvas {
+  pointer-events: none;
+}

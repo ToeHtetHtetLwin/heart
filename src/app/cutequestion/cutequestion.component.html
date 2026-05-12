@@ -1,0 +1,41 @@
+<div class="main-wrapper relative w-full h-screen">
+  <div #canvasContainer class="fixed inset-0 z-0"></div>
+
+  <div class="relative z-10 min-h-screen flex items-center justify-center p-6">
+    
+    <div class="glass-card max-w-sm w-full text-center" *ngIf="!isAccepted">
+      <div class="card-inner p-8 sm:p-10">
+        <div class="floating-img-container mb-8">
+          <img src="https://media.tenor.com/SFy5Za0DyMEAAAAm/erm-fingers.webp" 
+               alt="cute" class="w-32 h-32 mx-auto rounded-[2rem] shadow-2xl border-4 border-white">
+        </div>
+
+        <h1 class="text-2xl font-black text-slate-800 mb-2 leading-tight">
+          ဟိုင်း... ခဏလေး! ✨
+        </h1>
+        <p class="text-slate-500 font-medium mb-10">ငါ့ကို မုန့်ဝယ်ကျွေးမှာလားဟင်?</p>
+
+        <div class="flex flex-col gap-4 items-center justify-center min-h-[160px]">
+          <button (click)="onYes()" class="btn-primary">
+            ကျွေးမှာပေါ့! 🍩
+          </button>
+
+          <button #noButton 
+                  (mouseenter)="runAway()" 
+                  (click)="runAway()" 
+                  class="btn-secondary">
+            မကျွေးဘူး
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isAccepted" class="success-msg text-center animate-bounce-in">
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnZ6M3R0N2F4Z3F4Z3F4Z3F4Z3F4Z3F4Z3F4Z3F4Z3F4Z3F4Z3F4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9i&rid=giphy.gif&ct=s/26FLdmIp6wJr91JAI/giphy.gif" 
+           class="w-48 h-48 mx-auto mb-6 rounded-full shadow-2xl">
+      <h1 class="text-4xl font-black text-pink-600 mb-2">ယေးးး! ✨🍩</h1>
+      <p class="text-xl text-slate-600 font-bold">မုန့်အတူတူသွားစားမယ်နော်!</p>
+    </div>
+
+  </div>
+</div>
